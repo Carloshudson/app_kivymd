@@ -1,0 +1,76 @@
+<Contatos>:
+	orientation: 'vertical'
+	spacing: 12
+	padding: 12
+	adaptive_size: False
+	canvas.before:
+		Color:
+			rgba: app.theme_cls.primary_color
+		Rectangle:
+			pos: (self.x, self.y)
+			size: (self.width, self.height)
+			source: '/home/carlos/projetos-site-app/app-kivy/agenda/theme/theme-meu_Camada 1.png'
+	MDTopAppBar:
+		title: 'Agenda do mês'
+		font_size: '28dp'
+	ScrollView:
+		MDList:
+			padding: 10
+			spacing: 10
+			id: t_texto
+			halign: 'left'
+			
+	MDTextField:
+		hint_text: 'Informe o dia'
+		font_size: '18dp'
+		multiline: False
+		write_tab: True
+		helper_text: 'Entre com o dia valido'
+		helper_text_mode: 'on_error'
+		validator: 'date'
+		date_format: 'dd/mm/yyyy'
+		required: True
+		id: day_s
+	MDTextField:
+		hint_text: 'Informe nome do paciente'
+		font_size: '18dp'
+		multiline: True
+		write_tab: True
+		helper_text: 'Entre com o nome do seu paciente'
+		helper_text_mode: 'on_error'
+		required: True
+		id: name_s
+	MDTextField:
+		hint_text: 'Inform o inicio do atendimento'
+		font_size: '18dp'
+		multiline: False
+		write_tab: True
+		helper_text: 'Entre com inicio do atendimento, valido'
+		helper_text_mode: 'on_error'
+		required: True
+		validator: 'time'
+		time_format: '00:00'
+		id: inicio_s
+	MDTextField:
+	    hint_text: 'Informe o periódo'
+	    font_size: '18dp'
+	    multiline: False
+	    write_tab: True
+	    helper_text: 'Entre com o periódo do atendimento'
+	    helper_text_mode: 'on_error'
+	    required: True
+	    id: final
+	MDBoxLayout:
+		padding: 10
+		spacing: 10
+		MDRaisedButton:
+			text: 'Salvar'
+			font_size: '18dp'
+			on_press: root.Criar_dados()
+		MDRaisedButton:
+		    text: 'Excluir atendimento'
+		    fon_size: '18dp'
+		    on_press: root.calcula_horas()
+		MDRaisedButton:
+			text: 'limpar'
+			font_size: '18dp'
